@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   resources :questions
 
   devise_for :users
+  
   root 'static_pages#home'
   get 'static_pages/home'
-
+  get 'static_pages/about'
+  get 'static_pages/contact'
   get 'static_pages/help'
 
   # The priority is based upon order of creation: first created -> highest priority.
