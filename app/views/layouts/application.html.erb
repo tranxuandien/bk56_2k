@@ -6,30 +6,14 @@
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+    <%= favicon_link_tag "rails.png" %>
+    <%= render 'layouts/shim' %>
   </head>
-  <body>
-    <!--<header class="navbar navbar-fixed-top navbar-inverse">-->
-      <div class="container">
-        <div class="row">
-        <nav>
-         <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-        </div>
-        </nav>
-      </div>
-    <!--</header>-->
+ <body>
+    <%= render 'layouts/header' %>
     <div class="container">
       <%= yield %>
     </div>
-  </body>
+    <%= render 'layouts/footer' %>
+</body>
 </html>
